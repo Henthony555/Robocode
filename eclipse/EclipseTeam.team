@@ -1,0 +1,8 @@
+#Robocode robot team
+#Tue Nov 10 21:37:30 GMT-03:00 2026
+robocode.version=1.12.0
+team.author.name=Henthony; Caio; Fernando; Joao; Marcos.
+team.description=Eclipse \u00E9 o olho do universo observando nossos segredos.
+team.members=eclipse.LuaRobot*,eclipse.SolRobot*
+team.version=1.0
+team.webpage=https\://github.com/Henthony555/Robocode.git
