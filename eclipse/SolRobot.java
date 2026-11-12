@@ -1,14 +1,14 @@
 package eclipse;
+
 import robocode.*;
-//import java.awt.Color;
+import java.awt.Color;
 
 // Ajuda da API : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
 /**
  * SolRobot - um robô criado por (seu nome aqui)
  */
-public class SolRobot extends Robot
-{
+public class SolRobot extends Robot {
 	/**
 	 * run: Comportamento padrão do SolRobot
 	 */
@@ -20,8 +20,15 @@ public class SolRobot extends Robot
 
 		// setColors(Color.red,Color.blue,Color.green); // corpo, arma, radar
 
+		setBodyColor(Color.orange);
+		setGunColor(Color.yellow);
+		setRadarColor(Color.yellow);
+
+		setScanColor(Color.orange);
+		setBulletColor(Color.yellow);
+
 		// Loop principal do robô
-		while(true) {
+		while (true) {
 			// Substitua as próximas 4 linhas por qualquer comportamento que desejar
 			ahead(100);
 			turnGunRight(360);
@@ -45,12 +52,12 @@ public class SolRobot extends Robot
 		// Substitua a próxima linha por qualquer comportamento que desejar
 		back(10);
 	}
-	
+
 	/**
 	 * onHitWall: O que fazer quando colidir com uma parede
 	 */
 	public void onHitWall(HitWallEvent e) {
 		// Substitua a próxima linha por qualquer comportamento que desejar
 		back(20);
-	}	
+	}
 }
