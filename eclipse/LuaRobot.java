@@ -3,33 +3,20 @@ package eclipse;
 import robocode.*;
 import java.awt.Color;
 
-// Ajuda da API : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
+public class LuaRobot extends TeamRobot {
 
-/**
- * LuaRobot - um robô criado por (seu nome aqui)
- */
-public class LuaRobot extends Robot {
-	/**
-	 * run: Comportamento padrão do LuaRobot
-	 */
 	public void run() {
-		// A inicialização do robô deve ser colocada aqui
 
-		// Depois de testar seu robô, tente descomentar o import no topo,
-		// e a seguinte linha:
+		// Cores do robô:
+		setBodyColor(Color.lightGray); // Body => Corpo
+		setGunColor(Color.gray); // Gun => Arma
+		setRadarColor(Color.white); // Radar => Radar
 
-		// setColors(Color.red,Color.blue,Color.green); // corpo, arma, radar
-
-		setBodyColor(Color.lightGray);
-		setGunColor(Color.gray);
-		setRadarColor(Color.white);
-
-		setScanColor(Color.lightGray);
-		setBulletColor(Color.white);
+		setScanColor(Color.lightGray); // Scan => Varredura
+		setBulletColor(Color.white); // Bullet => Bala
 
 		// Loop principal do robô
 		while (true) {
-			// Substitua as próximas 4 linhas por qualquer comportamento que desejar
 			ahead(100);
 			turnGunRight(360);
 			back(100);
@@ -37,27 +24,25 @@ public class LuaRobot extends Robot {
 		}
 	}
 
-	/**
-	 * onScannedRobot: O que fazer quando avistar outro robô
-	 */
+	// onScannedRobot: O que fazer quando avistar outro robô
 	public void onScannedRobot(ScannedRobotEvent e) {
-		// Substitua a próxima linha por qualquer comportamento que desejar
+
+		// Verificando se o robô avistado é um parceiro de equipe
+		if (isTeammate(e.getName())) {
+			return; // é o parceiro, não atira
+		}
 		fire(1);
 	}
 
-	/**
-	 * onHitByBullet: O que fazer quando for atingido por um projétil
-	 */
+	// onHitByBullet: O que fazer quando for atingido por um projétil
 	public void onHitByBullet(HitByBulletEvent e) {
-		// Substitua a próxima linha por qualquer comportamento que desejar
+
 		back(10);
 	}
 
-	/**
-	 * onHitWall: O que fazer quando colidir com uma parede
-	 */
+	// onHitWall: O que fazer quando colidir com uma parede
 	public void onHitWall(HitWallEvent e) {
-		// Substitua a próxima linha por qualquer comportamento que desejar
+
 		back(20);
 	}
 }
